@@ -64,25 +64,27 @@ const images = [
   },
 ];
 
-const galleryContainer = document.querySelector('.gallery');
+document.addEventListener('DOMContentLoaded', () => {
+  const galleryContainer = document.querySelector('.gallery');
 
-images.forEach(({ preview, original, description }) => {
-  const galleryItem = document.createElement('li');
-  galleryItem.classList.add('gallery-item');
+  images.forEach(({ preview, original, description }) => {
+    const galleryItem = document.createElement('li');
+    galleryItem.classList.add('gallery-item');
 
-  const galleryLink = document.createElement('a');
-  galleryLink.classList.add('gallery-link');
-  galleryLink.href = original; 
+    const galleryLink = document.createElement('a');
+    galleryLink.classList.add('gallery-link');
+    galleryLink.href = original;
 
-  const galleryImage = document.createElement('img');
-  galleryImage.classList.add('gallery-image');
-  galleryImage.src = preview; 
-  galleryImage.alt = description; 
-  galleryImage.dataset.source = original; 
+    const galleryImage = document.createElement('img');
+    galleryImage.classList.add('gallery-image');
+    galleryImage.src = preview;
+    galleryImage.alt = description;
+    galleryImage.dataset.source = original;
 
-  galleryLink.appendChild(galleryImage);
-  galleryItem.appendChild(galleryLink);
-  galleryContainer.appendChild(galleryItem);
+    galleryLink.appendChild(galleryImage);
+    galleryItem.appendChild(galleryLink);
+    galleryContainer.appendChild(galleryItem);
+  });
 });
 
 galleryContainer.addEventListener('click', (e) => {
